@@ -31,7 +31,7 @@ set $right semicolon
 ################# Single and Dual screen
 
 # current displays
-exec --no-startup-id xrandr --output DisplayPort-1 --right-of HDMI-A-0 --auto
+exec --no-startup-id xrandr --output DisplayPort-1 --mode 1920x1080 --rate 244 --right-of HDMI-A-0 --auto
 
 # setting variables for later use
 # use xrandr and/or arandr to know the names of your monitors
@@ -369,7 +369,7 @@ for_window [class="Spotify"] focus
 exec --no-startup-id /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 
 # Updater
-# exec --no-startup-id pamac-tray
+exec --no-startup-id pamac-tray
 
 # bluetooth
 exec --no-startup-id blueberry-tray
@@ -397,8 +397,8 @@ exec --no-startup-id xfce4-clipman
 exec --no-startup-id conky -c ~/.config/conky/AUR-Nemesis.conkyrc
 
 # feh sets wallpaper
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch4.jpg &
-exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch4.jpg &
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch.jpg &
+exec --no-startup-id feh --bg-fill ~/Pictures/wallpapers/arch.jpg &
 # for other Arch Linux based distros
 # exec --no-startup-id feh --bg-fill /usr/share/archlinux-tweak-tool/data/wallpaper/wallpaper.png &
 
@@ -520,11 +520,7 @@ bindsym control+mod1+s exec --no-startup-id spotify;focus
 
 ################# screenshots                      
 
-bindsym Print exec --no-startup-id scrot 'ArcoLinux-%Y-%m-%d-%s_screenshot_$wx$h.jpg' -e 'mv $f $$(xdg-user-dir PICTURES)'
-bindsym Control+Print exec --no-startup-id xfce4-screenshooter
-bindsym Control+Shift+Print exec --no-startup-id gnome-screenshot -i
-bindsym $mod+Control+Print exec --no-startup-id flameshot gui
-# bindsym shift+Print exec --no-startup-id shutter
+bindsym $mod+p exec --no-startup-id flameshot gui
 
 ################# floating or tiled rules         
 
